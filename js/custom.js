@@ -10,11 +10,23 @@ getYear();
 
 // isotope js
 $(window).on('load', function () {
+
+    let nonFilterClasses = [
+        '.bebidas',
+        '.granite',
+        '.jugos'
+    ]
+
     $('.filters_menu li').click(function () {
         $('.filters_menu li').removeClass('active');
         $(this).addClass('active');
 
         var data = $(this).attr('data-filter');
+
+        if (nonFilterClasses.includes(data)) {
+            data = 'nada'
+        }
+
         $grid.isotope({
             filter: data
         })
@@ -37,7 +49,7 @@ $(document).ready(function() {
 /** google_map js **/
 function myMap() {
     var mapProp = {
-        center: new google.maps.LatLng(40.712775, -74.005973),
+        center: new google.maps.LatLng(10.425274, -75.550018),
         zoom: 18,
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
