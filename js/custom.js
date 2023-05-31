@@ -12,10 +12,23 @@ getYear();
 $(window).on('load', function () {
 
     let nonFilterClasses = [
-        '.bebidas',
-        '.granite',
-        '.jugos'
+        ".bebidas-menu",
+        ".granite-menu",
+        ".jugos-menu"
     ]
+
+    let gridMenu = $('.grid-menu');
+    let columnMenu = $('.column-menu');
+
+    $(document).ready(function() {
+        columnMenu.css('display', 'none');
+        // Iterar sobre el array
+        for (let i = 0; i < nonFilterClasses.length; i++) {
+          let className = nonFilterClasses[i];
+          // Seleccionar los componentes con la clase y aplicar el estilo
+          $(className).css("display", "none");
+        }
+      });
 
     $('.filters_menu li').click(function () {
         $('.filters_menu li').removeClass('active');
@@ -23,8 +36,13 @@ $(window).on('load', function () {
 
         var data = $(this).attr('data-filter');
 
+        if (!nonFilterClasses.includes(data)) {
+            columnMenu.css('display', 'none');
+        }
+
         if (nonFilterClasses.includes(data)) {
-            data = 'nada'
+            columnMenu.css('display', 'block');
+            $(data).css('display', 'block');
         }
 
         $grid.isotope({
