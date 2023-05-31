@@ -31,7 +31,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: 'Dancing Script', cursive;
 }
 
@@ -70,6 +71,60 @@ h2 {
           align-items: center;
   text-align: center;
 }
+
+/* Estilos menu */
+
+.bg-box img {
+  filter: brightness(0.6);
+}
+
+.bebidas-menu h2 {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.bebidas-menu h3 {
+  margin: 0.7em 0;
+}
+
+.bebidas-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+
+.bebidas-menu p {
+  margin: 0;
+}
+
+.bebidas-menu li {
+  display: flex;
+  /*justify-content: space-between;*/
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/*
+.bebidas-menu .item {
+  flex-grow: 1;
+}
+*/
+
+.bebidas-menu .price {
+  flex-grow: 1;
+  text-align: right;
+  display: flex;
+}
+
+.price::before {
+  content:'';
+  background: repeating-linear-gradient(to right, currentColor, currentColor 1px, transparent 2px, transparent 4px);
+  height: 1px;
+  flex-grow: 1;
+  display: inline-block;
+  margin-top: 1em;
+}
+/* Fin estilos menu */
 
 a,
 a:hover,
